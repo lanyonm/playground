@@ -1,0 +1,13 @@
+.project
+.metadata
+bin/
+tmp/
+target/
+*.tmp
+*.bak
+*.swp
+.classpath
+.settings/
+*.log
+Thumbs.db
+.DS_Store
