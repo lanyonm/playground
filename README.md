@@ -1,4 +1,4 @@
-playground [![Build Status](https://travis-ci.org/LanyonM/playground.svg)](https://travis-ci.org/LanyonM/playground)
+playground [![Build Status](https://travis-ci.org/LanyonM/playground.svg)](https://travis-ci.org/LanyonM/playground) [![Coverage Status](https://coveralls.io/repos/LanyonM/playground/badge.png)](https://coveralls.io/r/LanyonM/playground)
 ----------
 A project to experiment with and demo Spring 4 integrations.
 
