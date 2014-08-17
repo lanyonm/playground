@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.lanyonm.playground.persistence.UserMapper">
+
+	<cache />
+
+	<select id="getAllUsers" resultType="User">
+		SELECT id, firstName, lastName, email FROM users
+	</select>
+
+	<insert id="insertUser" parameterType="User">
+		INSERT INTO users (firstName, lastName, email)
+		VALUES (#{firstName}, #{lastName}, #{email})
+	</insert>
+
+	<update id="updateUser" parameterType="User">
+		UPDATE users SET
+			firstName = #{firstName},
+			lastName = #{lastName},
+			email = #{email}
+		WHERE ID = #{id}
+	</update>
+</mapper>
