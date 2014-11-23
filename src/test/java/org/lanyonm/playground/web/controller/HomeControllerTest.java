@@ -12,6 +12,7 @@ import org.junit.runner.RunWith;
 import org.lanyonm.playground.config.DataConfig;
 import org.lanyonm.playground.config.ViewResolver;
 import org.lanyonm.playground.config.WebConfig;
+import org.lanyonm.playground.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -23,7 +24,7 @@ import org.springframework.web.context.WebApplicationContext;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
-@ContextConfiguration(loader=AnnotationConfigWebContextLoader.class, classes={DataConfig.class, ViewResolver.class, WebConfig.class})
+@ContextConfiguration(loader=AnnotationConfigWebContextLoader.class, classes={DataConfig.class, UserServiceImpl.class, ViewResolver.class, WebConfig.class})
 public class HomeControllerTest {
 
 	@Autowired

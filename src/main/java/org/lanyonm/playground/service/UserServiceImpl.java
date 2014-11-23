@@ -5,7 +5,9 @@ import java.util.List;
 import org.lanyonm.playground.domain.User;
 import org.lanyonm.playground.persistence.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service("userService")
 public class UserServiceImpl implements UserService {
 
 	@Autowired

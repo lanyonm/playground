@@ -2,6 +2,7 @@ package org.lanyonm.playground.config;
 
 import javax.servlet.Filter;
 
+import org.lanyonm.playground.service.UserServiceImpl;
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
@@ -16,7 +17,7 @@ public class AppInitializer extends AbstractAnnotationConfigDispatcherServletIni
 
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
-		return new Class<?>[]{DataConfig.class, ViewResolver.class};
+		return new Class<?>[]{DataConfig.class, UserServiceImpl.class, ViewResolver.class};
 	}
 
 	@Override
