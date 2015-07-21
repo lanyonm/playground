@@ -1,4 +1,4 @@
-playground [![Build Status](https://travis-ci.org/LanyonM/playground.svg)](https://travis-ci.org/LanyonM/playground) [![Coverage Status](https://coveralls.io/repos/lanyonm/playground/badge.svg)](https://coveralls.io/r/lanyonm/playground)
+playground [![Build Status](https://travis-ci.org/lanyonm/playground.svg)](https://travis-ci.org/LanyonM/playground) [![Coverage Status](https://coveralls.io/repos/lanyonm/playground/badge.svg)](https://coveralls.io/r/lanyonm/playground)
 ----------
 A project to experiment with and demo Spring 4 integrations.
 
@@ -26,5 +26,5 @@ In the future, the github-site-plugin will be used to generate documentation.  F
 
 TODO
 ----
-* mybatis java config example
 * logstash log4j example
+* per-environment database configuration
