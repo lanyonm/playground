@@ -28,3 +28,4 @@ TODO
 ----
 * logstash log4j example
 * per-environment database configuration
+* further [restdocs](http://projects.spring.io/spring-restdocs/) configuration

@@ -5,8 +5,11 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.redirectedUrl;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
+import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.documentationConfiguration;
 
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.lanyonm.playground.config.DataConfig;
@@ -16,6 +19,7 @@ import org.lanyonm.playground.service.ExceptionServiceImpl;
 import org.lanyonm.playground.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mock.web.MockHttpSession;
+import org.springframework.restdocs.RestDocumentation;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.AnnotationConfigWebContextLoader;
@@ -29,6 +33,9 @@ import org.springframework.web.context.WebApplicationContext;
 @ContextConfiguration(loader=AnnotationConfigWebContextLoader.class, classes={DataConfig.class, ExceptionServiceImpl.class, UserServiceImpl.class, ViewResolver.class, WebConfig.class})
 public class HomeControllerTest {
 
+	@Rule
+	public final RestDocumentation restDocumentation = new RestDocumentation("target/generated-snippets");
+
 	@Autowired
 	private WebApplicationContext wac;
 
@@ -36,19 +43,23 @@ public class HomeControllerTest {
 
 	@Before
 	public void setup() {
-		this.mockMvc = MockMvcBuilders.webAppContextSetup(this.wac).build();
+		this.mockMvc = MockMvcBuilders.webAppContextSetup(this.wac)
+				.apply(documentationConfiguration(this.restDocumentation))
+				.build();
 	}
 
 	@Test
 	public void testIndex() throws Exception {
 		this.mockMvc.perform(get("/")).andExpect(status().isOk())
-				.andExpect(model().attribute("example", "Hello World!"));
+				.andExpect(model().attribute("example", "Hello World!"))
+				.andDo(document("index"));
 	}
 
 	@Test
 	public void testUsers() throws Exception {
 		this.mockMvc.perform(get("/users")).andExpect(status().isOk())
-				.andExpect(model().attributeExists("users"));
+				.andExpect(model().attributeExists("users"))
+				.andDo(document("users"));
 	}
 
 	@Test

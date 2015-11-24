@@ -1,0 +1,41 @@
+= Playground API Overview
+Michael Lanyon;
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 4
+:sectlinks:
+
+[introduction]
+= Introduction
+
+Playground is a Spring 4 demo application used to demonstrate examples of integrations with in Spring 4.
+
+
+[Index]
+= Index
+
+You can check that the service is up and running by executing a simple request using cURL:
+
+include::{snippets}/index/curl-request.adoc[]
+
+This request should yield the following response:
+
+include::{snippets}/index/http-response.adoc[]
+
+
+[Users]
+= Users
+
+You see that mybatis-spring is working as expected curl the users endpoint like this:
+
+include::{snippets}/users/curl-request.adoc[]
+
+This request should yield the following response:
+
+include::{snippets}/users/http-response.adoc[]
+
+If you'd made an http request, it'd look like this:
+
+include::{snippets}/users/http-request.adoc[]
