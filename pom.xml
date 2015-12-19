@@ -13,7 +13,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>1.7</java.version>
 		<org.springframework.version>4.2.3.RELEASE</org.springframework.version>
-		<org.slf4j.version>1.7.7</org.slf4j.version>
+		<org.slf4j.version>1.7.13</org.slf4j.version>
 	</properties>
 
 	<developers>
@@ -44,20 +44,20 @@
 		<dependency>
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis</artifactId>
-			<version>3.2.7</version>
+			<version>3.3.0</version>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis-spring</artifactId>
-			<version>1.2.2</version>
+			<version>1.2.3</version>
 			<type>jar</type>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
-			<version>1.4.181</version>
+			<version>1.4.190</version>
 			<type>jar</type>
 			<scope>compile</scope>
 		</dependency>
@@ -80,7 +80,7 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.11</version>
+			<version>4.12</version>
 			<type>jar</type>
 			<scope>test</scope>
 		</dependency>
@@ -94,7 +94,7 @@
 		<dependency>
 			<groupId>org.springframework.restdocs</groupId>
 			<artifactId>spring-restdocs-mockmvc</artifactId>
-			<version>1.0.0.RELEASE</version>
+			<version>1.0.1.RELEASE</version>
 			<type>jar</type>
 			<scope>test</scope>
 		</dependency>
@@ -139,7 +139,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.0</version>
+				<version>3.1</version>
 				<configuration>
 					<source>${java.version}</source>
 					<target>${java.version}</target>
@@ -199,7 +199,7 @@
 			<plugin>
 				<groupId>org.asciidoctor</groupId>
 				<artifactId>asciidoctor-maven-plugin</artifactId>
-				<version>1.5.2</version>
+				<version>1.5.2.1</version>
 				<executions>
 					<execution>
 						<id>generate-docs</id>
@@ -245,7 +245,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-site-plugin</artifactId>
-				<version>3.1</version>
+				<version>3.4</version>
 				<configuration>
 					<reportPlugins>
 						<plugin>
@@ -270,17 +270,15 @@
 								<detectLinks>true</detectLinks>
 								<detectOfflineLinks>true</detectOfflineLinks>
 								<links>
-									<link>http://download.oracle.com/javase/6/docs/api/</link>
-									<link>http://download.oracle.com/javaee/6/api/</link>
-									<link>http://static.springsource.org/spring-framework/docs/current/javadoc-api/</link>
-									<link>http://static.springsource.org/spring-data/data-jpa/docs/current/api/</link>
+									<link>http://download.oracle.com/javase/7/docs/api/</link>
+									<link>http://download.oracle.com/javaee/7/api/</link>
+									<link>http://docs.spring.io/spring/docs/current/javadoc-api/</link>
+									<link>http://docs.spring.io/spring-data/data-jpa/docs/current/api/</link>
 									<link>http://slf4j.org/api/</link>
-									<link>http://commons.apache.org/dbcp/api-1.2.2/</link>
 									<link>http://jakarta.apache.org/commons/logging/apidocs/</link>
-									<link>http://commons.apache.org/lang/api-release/</link>
-									<link>http://commons.apache.org/io/api-release/</link>
 									<link>http://junit.sourceforge.net/javadoc/</link>
-									<link>http://help.eclipse.org/help33/topic/org.eclipse.jdt.doc.isv/reference/api/</link>
+									<link>http://mybatis.org/mybatis-3/apidocs/reference/</link>
+									<link>http://mybatis.org/spring/apidocs/reference/</link>
 								</links>
 								<linksource>true</linksource>
 								<show>private</show>
@@ -376,7 +374,7 @@
 
 	<ciManagement>
 		<system>Travis CI</system>
-		<url>https://travis-ci.org/LanyonM/playground</url>
+		<url>https://travis-ci.org/lanyonm/playground</url>
 	</ciManagement>
 
 	<issueManagement>
@@ -387,7 +385,7 @@
 	<licenses>
 		<license>
 			<name>The Apache Software License, Version 2.0</name>
-			<url>https://raw.github.com/LanyonM/playground/master/LICENSE</url>
+			<url>https://raw.github.com/lanyonm/playground/master/LICENSE</url>
 			<distribution>repo</distribution>
 		</license>
 	</licenses>
