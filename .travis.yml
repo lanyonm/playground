@@ -5,7 +5,7 @@ jdk:
 
 after_success:
 - mvn clean cobertura:cobertura coveralls:cobertura
-- mvn clean site
+- mvn clean site -X
 
 env:
   global:
