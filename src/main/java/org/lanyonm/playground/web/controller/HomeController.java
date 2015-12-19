@@ -46,7 +46,7 @@ public class HomeController {
 
 	/**
 	 * keep an <tt>exceptionsToggle</tt> in the user's session
-	 * 
+	 *
 	 * @param session
 	 */
 	private boolean toggleExceptions(HttpSession session) {
@@ -61,9 +61,9 @@ public class HomeController {
 	}
 
 	/**
-	 * 
+	 *
 	 * @param session
-	 * @return
+	 * @return true if the user's session is currently throwing exceptions
 	 */
 	private boolean isThrowingExceptions(HttpSession session) {
 		if (session.getAttribute("exceptionsToggle") == null) {

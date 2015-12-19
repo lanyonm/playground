@@ -14,6 +14,8 @@
 		<java.version>1.7</java.version>
 		<org.springframework.version>4.2.3.RELEASE</org.springframework.version>
 		<org.slf4j.version>1.7.13</org.slf4j.version>
+		<github.global.server>github</github.global.server>
+		<github.global.oauth2Token>${env.GITHUB_OAUTH_TOKEN}</github.global.oauth2Token>
 	</properties>
 
 	<developers>
@@ -239,6 +241,22 @@
 								</resource>
 							</resources>
 						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>com.github.github</groupId>
+				<artifactId>site-maven-plugin</artifactId>
+				<version>0.12</version>
+				<configuration>
+					<message>Building site for ${project.version}</message>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>site</goal>
+						</goals>
+						<phase>site</phase>
 					</execution>
 				</executions>
 			</plugin>

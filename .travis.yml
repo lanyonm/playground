@@ -1,7 +1,12 @@
 language: java
 jdk:
-  - oraclejdk7
-  - openjdk7
+- oraclejdk7
+- openjdk7
 
 after_success:
-  - mvn clean cobertura:cobertura coveralls:cobertura
+- mvn clean cobertura:cobertura coveralls:cobertura
+- mvn clean site
+
+env:
+  global:
+    secure: hzSya5UZD/S6dvvMCXK1eETa5HhlLoO7fCLaCdx4Z0aVHqx0wyUyz8EHJC0SoKVxmqfpG/eMW2LRx1qs4hxbMETa4FxmnL8/rK1eGq+SJ2k75ZCcxnZaRIKJdP/ByuFC3aAVK0GjszKhONBm37GU4zc+ErtfiUjS3F7XPUbJupM=
