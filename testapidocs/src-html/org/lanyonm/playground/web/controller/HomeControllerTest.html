@@ -1,0 +1,156 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+<title>Source code</title>
+<link rel="stylesheet" type="text/css" href="../../../../../../stylesheet.css" title="Style">
+</head>
+<body>
+<div class="sourceContainer">
+<pre><span class="sourceLineNo">001</span>package org.lanyonm.playground.web.controller;<a name="line.1"></a>
+<span class="sourceLineNo">002</span><a name="line.2"></a>
+<span class="sourceLineNo">003</span>import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;<a name="line.3"></a>
+<span class="sourceLineNo">004</span>import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;<a name="line.4"></a>
+<span class="sourceLineNo">005</span>import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;<a name="line.5"></a>
+<span class="sourceLineNo">006</span>import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.redirectedUrl;<a name="line.6"></a>
+<span class="sourceLineNo">007</span>import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;<a name="line.7"></a>
+<span class="sourceLineNo">008</span>import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;<a name="line.8"></a>
+<span class="sourceLineNo">009</span>import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.documentationConfiguration;<a name="line.9"></a>
+<span class="sourceLineNo">010</span><a name="line.10"></a>
+<span class="sourceLineNo">011</span>import org.junit.Before;<a name="line.11"></a>
+<span class="sourceLineNo">012</span>import org.junit.Rule;<a name="line.12"></a>
+<span class="sourceLineNo">013</span>import org.junit.Test;<a name="line.13"></a>
+<span class="sourceLineNo">014</span>import org.junit.runner.RunWith;<a name="line.14"></a>
+<span class="sourceLineNo">015</span>import org.lanyonm.playground.config.DataConfig;<a name="line.15"></a>
+<span class="sourceLineNo">016</span>import org.lanyonm.playground.config.ViewResolver;<a name="line.16"></a>
+<span class="sourceLineNo">017</span>import org.lanyonm.playground.config.WebConfig;<a name="line.17"></a>
+<span class="sourceLineNo">018</span>import org.lanyonm.playground.service.ExceptionServiceImpl;<a name="line.18"></a>
+<span class="sourceLineNo">019</span>import org.lanyonm.playground.service.UserServiceImpl;<a name="line.19"></a>
+<span class="sourceLineNo">020</span>import org.springframework.beans.factory.annotation.Autowired;<a name="line.20"></a>
+<span class="sourceLineNo">021</span>import org.springframework.mock.web.MockHttpSession;<a name="line.21"></a>
+<span class="sourceLineNo">022</span>import org.springframework.restdocs.RestDocumentation;<a name="line.22"></a>
+<span class="sourceLineNo">023</span>import org.springframework.test.context.ContextConfiguration;<a name="line.23"></a>
+<span class="sourceLineNo">024</span>import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;<a name="line.24"></a>
+<span class="sourceLineNo">025</span>import org.springframework.test.context.web.AnnotationConfigWebContextLoader;<a name="line.25"></a>
+<span class="sourceLineNo">026</span>import org.springframework.test.context.web.WebAppConfiguration;<a name="line.26"></a>
+<span class="sourceLineNo">027</span>import org.springframework.test.web.servlet.MockMvc;<a name="line.27"></a>
+<span class="sourceLineNo">028</span>import org.springframework.test.web.servlet.setup.MockMvcBuilders;<a name="line.28"></a>
+<span class="sourceLineNo">029</span>import org.springframework.web.context.WebApplicationContext;<a name="line.29"></a>
+<span class="sourceLineNo">030</span><a name="line.30"></a>
+<span class="sourceLineNo">031</span>@RunWith(SpringJUnit4ClassRunner.class)<a name="line.31"></a>
+<span class="sourceLineNo">032</span>@WebAppConfiguration<a name="line.32"></a>
+<span class="sourceLineNo">033</span>@ContextConfiguration(loader=AnnotationConfigWebContextLoader.class, classes={DataConfig.class, ExceptionServiceImpl.class, UserServiceImpl.class, ViewResolver.class, WebConfig.class})<a name="line.33"></a>
+<span class="sourceLineNo">034</span>public class HomeControllerTest {<a name="line.34"></a>
+<span class="sourceLineNo">035</span><a name="line.35"></a>
+<span class="sourceLineNo">036</span>        @Rule<a name="line.36"></a>
+<span class="sourceLineNo">037</span>        public final RestDocumentation restDocumentation = new RestDocumentation("target/generated-snippets");<a name="line.37"></a>
+<span class="sourceLineNo">038</span><a name="line.38"></a>
+<span class="sourceLineNo">039</span>        @Autowired<a name="line.39"></a>
+<span class="sourceLineNo">040</span>        private WebApplicationContext wac;<a name="line.40"></a>
+<span class="sourceLineNo">041</span><a name="line.41"></a>
+<span class="sourceLineNo">042</span>        private MockMvc mockMvc;<a name="line.42"></a>
+<span class="sourceLineNo">043</span><a name="line.43"></a>
+<span class="sourceLineNo">044</span>        @Before<a name="line.44"></a>
+<span class="sourceLineNo">045</span>        public void setup() {<a name="line.45"></a>
+<span class="sourceLineNo">046</span>                this.mockMvc = MockMvcBuilders.webAppContextSetup(this.wac)<a name="line.46"></a>
+<span class="sourceLineNo">047</span>                                .apply(documentationConfiguration(this.restDocumentation))<a name="line.47"></a>
+<span class="sourceLineNo">048</span>                                .build();<a name="line.48"></a>
+<span class="sourceLineNo">049</span>        }<a name="line.49"></a>
+<span class="sourceLineNo">050</span><a name="line.50"></a>
+<span class="sourceLineNo">051</span>        @Test<a name="line.51"></a>
+<span class="sourceLineNo">052</span>        public void testIndex() throws Exception {<a name="line.52"></a>
+<span class="sourceLineNo">053</span>                this.mockMvc.perform(get("/")).andExpect(status().isOk())<a name="line.53"></a>
+<span class="sourceLineNo">054</span>                                .andExpect(model().attribute("example", "Hello World!"))<a name="line.54"></a>
+<span class="sourceLineNo">055</span>                                .andDo(document("index"));<a name="line.55"></a>
+<span class="sourceLineNo">056</span>        }<a name="line.56"></a>
+<span class="sourceLineNo">057</span><a name="line.57"></a>
+<span class="sourceLineNo">058</span>        @Test<a name="line.58"></a>
+<span class="sourceLineNo">059</span>        public void testUsers() throws Exception {<a name="line.59"></a>
+<span class="sourceLineNo">060</span>                this.mockMvc.perform(get("/users")).andExpect(status().isOk())<a name="line.60"></a>
+<span class="sourceLineNo">061</span>                                .andExpect(model().attributeExists("users"))<a name="line.61"></a>
+<span class="sourceLineNo">062</span>                                .andDo(document("users"));<a name="line.62"></a>
+<span class="sourceLineNo">063</span>        }<a name="line.63"></a>
+<span class="sourceLineNo">064</span><a name="line.64"></a>
+<span class="sourceLineNo">065</span>        @Test<a name="line.65"></a>
+<span class="sourceLineNo">066</span>        public void testExceptions() throws Exception {<a name="line.66"></a>
+<span class="sourceLineNo">067</span>                this.mockMvc.perform(get("/exceptions")).andExpect(status().isOk())<a name="line.67"></a>
+<span class="sourceLineNo">068</span>                                .andExpect(model().attribute("exceptionsState", false));<a name="line.68"></a>
+<span class="sourceLineNo">069</span>        }<a name="line.69"></a>
+<span class="sourceLineNo">070</span><a name="line.70"></a>
+<span class="sourceLineNo">071</span>        @Test<a name="line.71"></a>
+<span class="sourceLineNo">072</span>        public void testToggleExceptions() throws Exception {<a name="line.72"></a>
+<span class="sourceLineNo">073</span>                MockHttpSession session = new MockHttpSession();<a name="line.73"></a>
+<span class="sourceLineNo">074</span>                session.setAttribute("exceptionsToggle", false);<a name="line.74"></a>
+<span class="sourceLineNo">075</span>                this.mockMvc.perform(post("/exceptions").session(session)).andExpect(status().isOk())<a name="line.75"></a>
+<span class="sourceLineNo">076</span>                                .andExpect(model().attribute("exceptionsState", true));<a name="line.76"></a>
+<span class="sourceLineNo">077</span>                this.mockMvc.perform(post("/exceptions").session(session)).andExpect(status().isOk())<a name="line.77"></a>
+<span class="sourceLineNo">078</span>                                .andExpect(model().attribute("exceptionsState", false));<a name="line.78"></a>
+<span class="sourceLineNo">079</span>                this.mockMvc.perform(post("/exceptions").session(session)).andExpect(status().isOk())<a name="line.79"></a>
+<span class="sourceLineNo">080</span>                                .andExpect(model().attribute("exceptionsState", true));<a name="line.80"></a>
+<span class="sourceLineNo">081</span>                this.mockMvc.perform(post("/exceptions").session(session)).andExpect(status().isOk())<a name="line.81"></a>
+<span class="sourceLineNo">082</span>                                .andExpect(model().attribute("exceptionsState", false));<a name="line.82"></a>
+<span class="sourceLineNo">083</span>        }<a name="line.83"></a>
+<span class="sourceLineNo">084</span>}<a name="line.84"></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</pre>
+</div>
+</body>
+</html>
