@@ -1,1 +1,1 @@
-/Library/Java/JavaVirtualMachines/jdk1.7.0_67.jdk/Contents/Home/bin/javadoc @options @packages
+/usr/lib/jvm/java-7-oracle/jre/../bin/javadoc @options @packages
