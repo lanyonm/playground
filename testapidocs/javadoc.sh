@@ -1,1 +1,1 @@
-/usr/lib/jvm/java-7-oracle/jre/../bin/javadoc @options @packages
+/usr/lib/jvm/java-7-openjdk-amd64/jre/../bin/javadoc @options @packages
