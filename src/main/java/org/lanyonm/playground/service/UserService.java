@@ -5,8 +5,7 @@ import java.util.List;
 import org.lanyonm.playground.domain.User;
 
 /**
- * 
- * @author LanyonM
+ * @author lanyonm
  */
 public interface UserService {
 

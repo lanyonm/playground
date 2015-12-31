@@ -7,6 +7,9 @@ import org.lanyonm.playground.persistence.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+/**
+ * @author lanyonm
+ */
 @Service("userService")
 public class UserServiceImpl implements UserService {
 

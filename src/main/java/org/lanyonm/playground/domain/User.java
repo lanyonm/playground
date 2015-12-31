@@ -3,8 +3,7 @@ package org.lanyonm.playground.domain;
 import java.io.Serializable;
 
 /**
- * 
- * @author LanyonM
+ * @author lanyonm
  */
 public class User implements Serializable {
 
@@ -44,5 +43,11 @@ public class User implements Serializable {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public String toString() {
+		return new StringBuilder("domain.User: firstName=\"").append(this.getFirstName())
+				.append("\", lastName=\"").append(this.getLastName())
+				.append("\", email=\"").append(this.getEmail()).append("\"").toString();
 	}
 }
