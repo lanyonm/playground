@@ -1,5 +1,6 @@
 org.lanyonm.playground.persistence
 org.lanyonm.playground.web.controller
+org.lanyonm.playground.web.command
 org.lanyonm.playground.domain
 org.lanyonm.playground.config
 org.lanyonm.playground.service

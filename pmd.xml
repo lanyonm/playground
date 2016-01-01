@@ -1,3 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pmd version="4.3" timestamp="2015-12-31T01:27:33.092">
+<pmd version="4.3" timestamp="2016-01-01T19:59:34.685">
+<file name="/home/travis/build/lanyonm/playground/src/main/java/org/lanyonm/playground/web/controller/TodoController.java">
+<violation beginline="81" endline="83" begincolumn="32" endcolumn="25" rule="EmptyIfStmt" ruleset="Basic Rules" package="org.lanyonm.playground.web.controller" class="TodoController" method="todoAddEditSave" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#EmptyIfStmt" priority="3">
+Avoid empty if statements
+</violation>
+<violation beginline="91" endline="93" begincolumn="51" endcolumn="17" rule="EmptyIfStmt" ruleset="Basic Rules" package="org.lanyonm.playground.web.controller" class="TodoController" method="todoDelete" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#EmptyIfStmt" priority="3">
+Avoid empty if statements
+</violation>
+<violation beginline="93" endline="95" begincolumn="24" endcolumn="17" rule="EmptyIfStmt" ruleset="Basic Rules" package="org.lanyonm.playground.web.controller" class="TodoController" method="todoDelete" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#EmptyIfStmt" priority="3">
+Avoid empty if statements
+</violation>
+</file>
 </pmd>

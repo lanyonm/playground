@@ -8,51 +8,59 @@
 <div class="sourceContainer">
 <pre><span class="sourceLineNo">001</span>package org.lanyonm.playground.config;<a name="line.1"></a>
 <span class="sourceLineNo">002</span><a name="line.2"></a>
-<span class="sourceLineNo">003</span>import javax.sql.DataSource;<a name="line.3"></a>
+<span class="sourceLineNo">003</span>import java.util.Date;<a name="line.3"></a>
 <span class="sourceLineNo">004</span><a name="line.4"></a>
-<span class="sourceLineNo">005</span>import org.mybatis.spring.SqlSessionFactoryBean;<a name="line.5"></a>
-<span class="sourceLineNo">006</span>import org.mybatis.spring.annotation.MapperScan;<a name="line.6"></a>
-<span class="sourceLineNo">007</span>import org.springframework.context.annotation.Bean;<a name="line.7"></a>
-<span class="sourceLineNo">008</span>import org.springframework.context.annotation.Configuration;<a name="line.8"></a>
-<span class="sourceLineNo">009</span>import org.springframework.jdbc.core.JdbcTemplate;<a name="line.9"></a>
-<span class="sourceLineNo">010</span>import org.springframework.jdbc.datasource.DataSourceTransactionManager;<a name="line.10"></a>
-<span class="sourceLineNo">011</span>import org.springframework.jdbc.datasource.SimpleDriverDataSource;<a name="line.11"></a>
-<span class="sourceLineNo">012</span><a name="line.12"></a>
-<span class="sourceLineNo">013</span>@Configuration<a name="line.13"></a>
-<span class="sourceLineNo">014</span>@MapperScan("org.lanyonm.playground.persistence")<a name="line.14"></a>
-<span class="sourceLineNo">015</span>public class DataConfig {<a name="line.15"></a>
-<span class="sourceLineNo">016</span><a name="line.16"></a>
-<span class="sourceLineNo">017</span>        @Bean<a name="line.17"></a>
-<span class="sourceLineNo">018</span>        public DataSource dataSource() {<a name="line.18"></a>
-<span class="sourceLineNo">019</span>                SimpleDriverDataSource dataSource = new SimpleDriverDataSource();<a name="line.19"></a>
-<span class="sourceLineNo">020</span>                dataSource.setDriverClass(org.h2.Driver.class);<a name="line.20"></a>
-<span class="sourceLineNo">021</span>                dataSource.setUsername("sa");<a name="line.21"></a>
-<span class="sourceLineNo">022</span>                dataSource.setUrl("jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE");<a name="line.22"></a>
-<span class="sourceLineNo">023</span>                dataSource.setPassword("");<a name="line.23"></a>
-<span class="sourceLineNo">024</span><a name="line.24"></a>
-<span class="sourceLineNo">025</span>                // populate some data<a name="line.25"></a>
-<span class="sourceLineNo">026</span>                JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);<a name="line.26"></a>
-<span class="sourceLineNo">027</span>                System.out.println("Creating tables");<a name="line.27"></a>
-<span class="sourceLineNo">028</span>                jdbcTemplate.execute("drop table users if exists");<a name="line.28"></a>
-<span class="sourceLineNo">029</span>                jdbcTemplate.execute("create table users(id serial, firstName varchar(255), lastName varchar(255), email varchar(255))");<a name="line.29"></a>
-<span class="sourceLineNo">030</span>                jdbcTemplate.update("INSERT INTO users(firstName, lastName, email) values (?,?,?)", "Mike", "Lanyon", "lanyonm@gmail.com");<a name="line.30"></a>
-<span class="sourceLineNo">031</span><a name="line.31"></a>
-<span class="sourceLineNo">032</span>                return dataSource;<a name="line.32"></a>
-<span class="sourceLineNo">033</span>        }<a name="line.33"></a>
-<span class="sourceLineNo">034</span><a name="line.34"></a>
-<span class="sourceLineNo">035</span>        @Bean<a name="line.35"></a>
-<span class="sourceLineNo">036</span>        public DataSourceTransactionManager transactionManager() {<a name="line.36"></a>
-<span class="sourceLineNo">037</span>                return new DataSourceTransactionManager(dataSource());<a name="line.37"></a>
-<span class="sourceLineNo">038</span>        }<a name="line.38"></a>
+<span class="sourceLineNo">005</span>import javax.sql.DataSource;<a name="line.5"></a>
+<span class="sourceLineNo">006</span><a name="line.6"></a>
+<span class="sourceLineNo">007</span>import org.mybatis.spring.SqlSessionFactoryBean;<a name="line.7"></a>
+<span class="sourceLineNo">008</span>import org.mybatis.spring.annotation.MapperScan;<a name="line.8"></a>
+<span class="sourceLineNo">009</span>import org.springframework.context.annotation.Bean;<a name="line.9"></a>
+<span class="sourceLineNo">010</span>import org.springframework.context.annotation.Configuration;<a name="line.10"></a>
+<span class="sourceLineNo">011</span>import org.springframework.jdbc.core.JdbcTemplate;<a name="line.11"></a>
+<span class="sourceLineNo">012</span>import org.springframework.jdbc.datasource.DataSourceTransactionManager;<a name="line.12"></a>
+<span class="sourceLineNo">013</span>import org.springframework.jdbc.datasource.SimpleDriverDataSource;<a name="line.13"></a>
+<span class="sourceLineNo">014</span><a name="line.14"></a>
+<span class="sourceLineNo">015</span>/**<a name="line.15"></a>
+<span class="sourceLineNo">016</span> * @author lanyonm<a name="line.16"></a>
+<span class="sourceLineNo">017</span> */<a name="line.17"></a>
+<span class="sourceLineNo">018</span>@Configuration<a name="line.18"></a>
+<span class="sourceLineNo">019</span>@MapperScan("org.lanyonm.playground.persistence")<a name="line.19"></a>
+<span class="sourceLineNo">020</span>public class DataConfig {<a name="line.20"></a>
+<span class="sourceLineNo">021</span><a name="line.21"></a>
+<span class="sourceLineNo">022</span>        @Bean<a name="line.22"></a>
+<span class="sourceLineNo">023</span>        public DataSource dataSource() {<a name="line.23"></a>
+<span class="sourceLineNo">024</span>                SimpleDriverDataSource dataSource = new SimpleDriverDataSource();<a name="line.24"></a>
+<span class="sourceLineNo">025</span>                dataSource.setDriverClass(org.h2.Driver.class);<a name="line.25"></a>
+<span class="sourceLineNo">026</span>                dataSource.setUsername("sa");<a name="line.26"></a>
+<span class="sourceLineNo">027</span>                dataSource.setUrl("jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE");<a name="line.27"></a>
+<span class="sourceLineNo">028</span>                dataSource.setPassword("");<a name="line.28"></a>
+<span class="sourceLineNo">029</span><a name="line.29"></a>
+<span class="sourceLineNo">030</span>                // populate some data<a name="line.30"></a>
+<span class="sourceLineNo">031</span>                JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);<a name="line.31"></a>
+<span class="sourceLineNo">032</span>                System.out.println("Creating tables");<a name="line.32"></a>
+<span class="sourceLineNo">033</span>                jdbcTemplate.execute("drop table users if exists");<a name="line.33"></a>
+<span class="sourceLineNo">034</span>                jdbcTemplate.execute("create table users(id serial, firstName varchar(255), lastName varchar(255), email varchar(255))");<a name="line.34"></a>
+<span class="sourceLineNo">035</span>                jdbcTemplate.update("INSERT INTO users(firstName, lastName, email) values (?,?,?)", "Mike", "Lanyon", "lanyonm@gmail.com");<a name="line.35"></a>
+<span class="sourceLineNo">036</span>                jdbcTemplate.execute("drop table todos if exists");<a name="line.36"></a>
+<span class="sourceLineNo">037</span>                jdbcTemplate.execute("create table todos(id serial, title varchar(255), dateCreated date, dateModified date)");<a name="line.37"></a>
+<span class="sourceLineNo">038</span>                jdbcTemplate.update("INSERT INTO todos(title, dateCreated) values (?,?)", "first todo", new Date());<a name="line.38"></a>
 <span class="sourceLineNo">039</span><a name="line.39"></a>
-<span class="sourceLineNo">040</span>        @Bean<a name="line.40"></a>
-<span class="sourceLineNo">041</span>        public SqlSessionFactoryBean sqlSessionFactory() throws Exception {<a name="line.41"></a>
-<span class="sourceLineNo">042</span>                SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();<a name="line.42"></a>
-<span class="sourceLineNo">043</span>                sessionFactory.setDataSource(dataSource());<a name="line.43"></a>
-<span class="sourceLineNo">044</span>                sessionFactory.setTypeAliasesPackage("org.lanyonm.playground.domain");<a name="line.44"></a>
-<span class="sourceLineNo">045</span>                return sessionFactory;<a name="line.45"></a>
+<span class="sourceLineNo">040</span>                return dataSource;<a name="line.40"></a>
+<span class="sourceLineNo">041</span>        }<a name="line.41"></a>
+<span class="sourceLineNo">042</span><a name="line.42"></a>
+<span class="sourceLineNo">043</span>        @Bean<a name="line.43"></a>
+<span class="sourceLineNo">044</span>        public DataSourceTransactionManager transactionManager() {<a name="line.44"></a>
+<span class="sourceLineNo">045</span>                return new DataSourceTransactionManager(dataSource());<a name="line.45"></a>
 <span class="sourceLineNo">046</span>        }<a name="line.46"></a>
-<span class="sourceLineNo">047</span>}<a name="line.47"></a>
+<span class="sourceLineNo">047</span><a name="line.47"></a>
+<span class="sourceLineNo">048</span>        @Bean<a name="line.48"></a>
+<span class="sourceLineNo">049</span>        public SqlSessionFactoryBean sqlSessionFactory() throws Exception {<a name="line.49"></a>
+<span class="sourceLineNo">050</span>                SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();<a name="line.50"></a>
+<span class="sourceLineNo">051</span>                sessionFactory.setDataSource(dataSource());<a name="line.51"></a>
+<span class="sourceLineNo">052</span>                sessionFactory.setTypeAliasesPackage("org.lanyonm.playground.domain");<a name="line.52"></a>
+<span class="sourceLineNo">053</span>                return sessionFactory;<a name="line.53"></a>
+<span class="sourceLineNo">054</span>        }<a name="line.54"></a>
+<span class="sourceLineNo">055</span>}<a name="line.55"></a>
 
 
 
