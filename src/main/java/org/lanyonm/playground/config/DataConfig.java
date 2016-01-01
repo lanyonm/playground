@@ -1,5 +1,7 @@
 package org.lanyonm.playground.config;
 
+import java.util.Date;
+
 import javax.sql.DataSource;
 
 import org.mybatis.spring.SqlSessionFactoryBean;
@@ -31,6 +33,9 @@ public class DataConfig {
 		jdbcTemplate.execute("drop table users if exists");
 		jdbcTemplate.execute("create table users(id serial, firstName varchar(255), lastName varchar(255), email varchar(255))");
 		jdbcTemplate.update("INSERT INTO users(firstName, lastName, email) values (?,?,?)", "Mike", "Lanyon", "lanyonm@gmail.com");
+		jdbcTemplate.execute("drop table todos if exists");
+		jdbcTemplate.execute("create table todos(id serial, title varchar(255), dateCreated date, dateModified date)");
+		jdbcTemplate.update("INSERT INTO todos(title, dateCreated) values (?,?)", "first todo", new Date());
 
 		return dataSource;
 	}

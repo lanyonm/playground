@@ -33,5 +33,6 @@ If you would like to skip the upload to Github:
 TODO
 ----
 * logstash log4j example
+* finish & test command validation
 * per-environment database configuration
 * further [restdocs](http://projects.spring.io/spring-restdocs/) configuration

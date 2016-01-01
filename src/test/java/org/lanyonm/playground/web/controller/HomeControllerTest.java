@@ -1,12 +1,11 @@
 package org.lanyonm.playground.web.controller;
 
+import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
+import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.documentationConfiguration;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.redirectedUrl;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
-import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.documentationConfiguration;
 
 import org.junit.Before;
 import org.junit.Rule;
@@ -16,6 +15,7 @@ import org.lanyonm.playground.config.DataConfig;
 import org.lanyonm.playground.config.ViewResolver;
 import org.lanyonm.playground.config.WebConfig;
 import org.lanyonm.playground.service.ExceptionServiceImpl;
+import org.lanyonm.playground.service.TodoServiceImpl;
 import org.lanyonm.playground.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mock.web.MockHttpSession;
@@ -28,9 +28,12 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
+/**
+ * @author lanyonm
+ */
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
-@ContextConfiguration(loader=AnnotationConfigWebContextLoader.class, classes={DataConfig.class, ExceptionServiceImpl.class, UserServiceImpl.class, ViewResolver.class, WebConfig.class})
+@ContextConfiguration(loader=AnnotationConfigWebContextLoader.class, classes={DataConfig.class, ExceptionServiceImpl.class, TodoServiceImpl.class, UserServiceImpl.class, ViewResolver.class, WebConfig.class})
 public class HomeControllerTest {
 
 	@Rule

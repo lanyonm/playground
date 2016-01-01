@@ -27,6 +27,7 @@
 				<div class="navbar-collapse collapse">
 					<ul class="nav navbar-nav">
 						<li><a href="<%= request.getContextPath() %>/users">Users</a></li>
+						<li<%= request.getRequestURI().contains("todo") ? " class=\"active\"" : "" %>><a href="<%= request.getContextPath() %>/todo/">Todos</a></li>
 						<li<%= request.getRequestURI().contains("exceptions") ? " class=\"active\"" : "" %>><a href="<%= request.getContextPath() %>/exceptions">Exceptions</a></li>
 <!-- 						<li class="active"><a href="#">Link</a></li> -->
 <!-- 						<li class="dropdown"> -->
