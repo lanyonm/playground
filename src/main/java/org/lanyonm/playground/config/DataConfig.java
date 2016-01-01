@@ -10,6 +10,9 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.jdbc.datasource.SimpleDriverDataSource;
 
+/**
+ * @author lanyonm
+ */
 @Configuration
 @MapperScan("org.lanyonm.playground.persistence")
 public class DataConfig {

@@ -12,7 +12,7 @@ import com.opensymphony.sitemesh.webapp.SiteMeshFilter;
 /**
  * Java Config for this application.  Life begins here.
  * 
- * @author LanyonM
+ * @author lanyonm
  */
 public class AppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 

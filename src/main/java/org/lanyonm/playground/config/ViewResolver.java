@@ -7,7 +7,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 /**
  * Custom view resolving
  * 
- * @author LanyonM
+ * @author lanyonm
  */
 @Component
 public class ViewResolver extends InternalResourceViewResolver {

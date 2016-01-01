@@ -9,7 +9,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 /**
  * All the web app configuration happens here
  * 
- * @author LanyonM
+ * @author lanyonm
  */
 @Configuration
 @EnableWebMvc
