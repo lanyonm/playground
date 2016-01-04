@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pmd version="4.3" timestamp="2016-01-03T23:57:05.267">
+<pmd version="4.3" timestamp="2016-01-04T02:27:52.635">
 <file name="/home/travis/build/lanyonm/playground/src/main/java/org/lanyonm/playground/web/controller/TodoController.java">
 <violation beginline="81" endline="83" begincolumn="32" endcolumn="25" rule="EmptyIfStmt" ruleset="Basic Rules" package="org.lanyonm.playground.web.controller" class="TodoController" method="todoAddEditSave" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#EmptyIfStmt" priority="3">
 Avoid empty if statements
