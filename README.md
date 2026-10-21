@@ -1,5 +1,8 @@
-playground [![Build Status](https://travis-ci.org/lanyonm/playground.svg)](https://travis-ci.org/lanyonm/playground) [![Coverage Status](https://coveralls.io/repos/lanyonm/playground/badge.svg)](https://coveralls.io/r/lanyonm/playground)
+playground
 ----------
+> [!WARNING]
+> **This project is no longer maintained** and has been archived. It was last updated in 2016 and targets Java 7 and Spring 4, both end-of-life. Its dependencies are out of date and have known vulnerabilities. It's kept for reference only. Don't use it as a base for new work.
+
 A project to experiment with and demo Spring 4 integrations.
 
 
@@ -15,8 +18,6 @@ Testing
 Always be testing:
 
 	mvn test
-
-Travis will also take care of running tests after each push to GitHub.
 
 
 [Documentation](https://lanyonm.github.io/playground/)
